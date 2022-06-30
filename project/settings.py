@@ -37,7 +37,7 @@ INSTALLED_APPS = [
 
     # apps
     'apps.account',
-    'apps.hotel',
+    'apps.hotels',
     'apps.category',
 
 
@@ -53,7 +53,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'hotel.urls'
+ROOT_URLCONF = 'project.urls'
 
 TEMPLATES = [
     {
