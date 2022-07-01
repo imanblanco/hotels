@@ -65,7 +65,7 @@ class LoginSerializer(serializers.Serializer):
         return data
 
 
-class ChangepasswordSerializer(serializers.Serializer):
+class ChangePasswordSerializer(serializers.Serializer):
     old_password = serializers.CharField(min_length=6, required=True)
     new_password = serializers.CharField(min_length=6, required=True)
     new_password_confirm = serializers.CharField(min_length=6, required=True)

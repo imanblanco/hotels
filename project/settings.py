@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'apps.account',
     'apps.hotels',
     'apps.category',
+    'apps.comment',
 
 
 ]

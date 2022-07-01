@@ -6,7 +6,7 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework.authtoken.models import Token
 
-from .serializers import RegistrationSerializer, LoginSerializer, ChangepasswordSerializer, ForgotPasswordSerializer, ForgotPasswordCompleteSerializer
+from .serializers import RegistrationSerializer, LoginSerializer, ChangePasswordSerializer, ForgotPasswordSerializer, ForgotPasswordCompleteSerializer
 
 User = get_user_model()
 
@@ -40,14 +40,15 @@ class LogOutView(APIView):
         return Response("Successfully signed out!")
 
 
-class ChangepasswordView(APIView):
+class ChangePasswordView(APIView):
     permission_classes = [IsAuthenticated]
 
     def post(self, request):
-        serializer = ChangepasswordSerializer(data=request.data, context={'request':request})
+        serializer = ChangePasswordSerializer(data=request.data, context={'request':request})
         if serializer.is_valid(raise_exception=True):
             serializer.set_new_password()
             return Response('Password Changed Successfully')
+
 
 class ForgotPasswordView(APIView):
     def post(self, request):

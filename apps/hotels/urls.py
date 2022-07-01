@@ -1,24 +1,11 @@
-# from django.db import router
-# from django.urls import path
-# from rest_framework.routers import DefaultRouter
-# from .views import FilmViewSet, FilmDetailView
-
-# router = DefaultRouter()
-
-# router.register('', FilmViewSet)
-
-# urlpatterns = [
-#     path('<int:pk>/', FilmDetailView.as_view()),
-
-# ]
-# urlpatterns += router.urls
-
 from django.urls import path
-from .views import HotelListView, CreateHotelView, RetrieveEditDestroyHotelView
+from .views import HotelListView, CreateHotelView, UpdateHotelView, DestroyHotelView, HotelDetailView
 
 urlpatterns = [
     path('', HotelListView.as_view()),
-    path('film/', CreateHotelView.as_view()),
-    path('film/<int:pk>/', RetrieveEditDestroyHotelView.as_view()),
+    path('hotel/', CreateHotelView.as_view()),
+    path('hotel/<int:pk>/', HotelDetailView.as_view()),
+    path('hotel/update/<int:pk>/', UpdateHotelView.as_view()),
+    path('hotel/delete/<int:pk>/', DestroyHotelView.as_view()),
 
 ]

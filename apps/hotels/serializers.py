@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from .models import Hotel, HotelImage
 
+
 class HotelImageSerializer(serializers.ModelSerializer):
     class Meta:
         model = HotelImage
@@ -30,11 +31,4 @@ class HotelSerializer(serializers.ModelSerializer):
     def to_representation(self, instance):
         rep = super().to_representation(instance)
         rep['images'] = HotelImageSerializer(HotelImage.objects.filter(hotel=instance.id), many=True).data
-        # rep['reviews'] = ReviewSerializer(instance.review.filter(product=instance.id), many=True).data
-        # total_rating = [i.rating for i in instance.review.all()]
-        # if len(total_rating) != 0:
-        #     rep['total_rating'] = sum(total_rating)/len(total_rating)
-        # else:
-        #     rep['total_rating'] = ""
-        # rep['comments'] = CommentSerializer(Comment.objects.filter(product_id=instance), many=True).data
         return rep
