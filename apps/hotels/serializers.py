@@ -1,6 +1,9 @@
 from rest_framework import serializers
 from .models import Hotel, HotelImage, Favorites
+from ..comment.models import Comment
+from ..comment.serializers import CommentSerializer
 from ..rating.serializers import RatingSerializer
+
 
 
 class HotelImageSerializer(serializers.ModelSerializer):
