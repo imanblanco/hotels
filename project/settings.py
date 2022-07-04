@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'apps.hotels',
     'apps.category',
     'apps.comment',
+    'apps.rating',
+
 
 
 ]
@@ -72,7 +74,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'hotel.wsgi.application'
+WSGI_APPLICATION = 'project.wsgi.application'
 
 
 # Database

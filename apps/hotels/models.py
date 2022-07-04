@@ -35,3 +35,12 @@ class HotelImage(models.Model):
 
     def __str__(self) -> str:
         return self.hotel
+
+
+class Favorites(models.Model):
+    hotel = models.ForeignKey(Hotel, on_delete=models.CASCADE, related_name='favorites')
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='favorites')
+    is_favorite = models.BooleanField(default=False)
+
+    def __str__(self):
+        return str(self.like)

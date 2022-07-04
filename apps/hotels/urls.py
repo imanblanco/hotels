@@ -1,11 +1,14 @@
-from django.urls import path
-from .views import HotelListView, CreateHotelView, UpdateHotelView, DestroyHotelView, HotelDetailView
+from django.db import router
+from django.urls import path, include
+from rest_framework.routers import DefaultRouter
+from .views import HotelViewSet, FavoriteView
+
+router = DefaultRouter()
+
+router.register('hotel', HotelViewSet)
 
 urlpatterns = [
-    path('', HotelListView.as_view()),
-    path('hotel/', CreateHotelView.as_view()),
-    path('hotel/<int:pk>/', HotelDetailView.as_view()),
-    path('hotel/update/<int:pk>/', UpdateHotelView.as_view()),
-    path('hotel/delete/<int:pk>/', DestroyHotelView.as_view()),
+    path('', include(router.urls)),
+    path('saved/', FavoriteView.as_view())
 
 ]

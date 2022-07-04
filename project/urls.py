@@ -28,6 +28,7 @@ urlpatterns = [
    path('hotels/', include('apps.hotels.urls')),
    path('category/', include('apps.category.urls')),
    path('comment/', include('apps.comment.urls')),
+   path('rating/', include('apps.rating.urls')),
 
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

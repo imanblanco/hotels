@@ -17,15 +17,15 @@ class CommentViewSet(viewsets.ModelViewSet):
         if self.action in ['list', 'retrieve']:
             permissions = []
         elif self.action == 'like':
-            permissions = [IsAuthenticated, ]
+            permissions = [IsAuthenticated]
         else:
-            permissions = [IsCommentAuthor, ]
+            permissions = [IsCommentAuthor]
         return [permission() for permission in permissions]
 
     @action(detail=True, methods=["POST"])
     def like(self, request, *args, **kwargs):
-        review = self.get_object()
-        like_obj, _ = Like.objects.get_or_create(review=review, user=request.user)
+        comment = self.get_object()
+        like_obj, _ = Like.objects.get_or_create(comment=comment, user=request.user)
         like_obj.like = not like_obj.like
         like_obj.save()
         status = 'like'

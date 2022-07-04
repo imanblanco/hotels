@@ -50,6 +50,7 @@ class LoginSerializer(serializers.Serializer):
 
     def validate(self, data):
         request = self.context.get('request')
+        print(data)
         nickname = data.get('nickname')
         password = data.get('password')
         if nickname and password:
@@ -57,6 +58,7 @@ class LoginSerializer(serializers.Serializer):
                 username = nickname,
                 password = password,
                 request = request)
+            print(user)
             if not user:
                 raise serializers.ValidationError('Bad credentials')
         else:

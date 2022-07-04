@@ -7,7 +7,7 @@ User = get_user_model()
 
 class Comment(models.Model):
     hotel = models.ForeignKey(Hotel, on_delete=models.CASCADE, related_name='comments')
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='comments')
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, related_name='comments')
     text = models.TextField(max_length=700)
     created_at = models.DateTimeField(auto_now_add=True)
 
